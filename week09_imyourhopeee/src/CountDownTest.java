@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 public class CountDownTest extends JFrame {
 	private JLabel label;
 	
-	Thread t;
+	Thread t; //스레드 개념
 	
 	class Counter extends Thread{
 		public void run() {
@@ -15,7 +15,7 @@ public class CountDownTest extends JFrame {
 				try {
 					Thread.sleep(1000);
 				}catch (InterruptedException e) {
-					return;
+					return; 
 				}label.setText(i+" ");
 			}
 		}
@@ -24,7 +24,7 @@ public class CountDownTest extends JFrame {
 	public CountDownTest() {
 		setTitle("카운트다운");
 		setSize(400,150);
-		getContentPane().setLayout(null);
+		getContentPane().setLayout(null); //getContentPane?
 		
 		label=new JLabel("0");
 		label.setBounds(0,0,384,111);
@@ -34,7 +34,7 @@ public class CountDownTest extends JFrame {
 		JButton b=new JButton("카운트 중지");
 		b.setBounds(247,24,125,23);
 		
-		b.addActionListener(e-> t.interrupt());
+		b.addActionListener(e-> t.interrupt());//람다식
 		getContentPane().add(b);
 		setVisible(true);
 		
